@@ -2,24 +2,29 @@
 using namespace std;
 
 // int swap(int &, int &);
-int swap(int *&, int *&);
+int swap(int *&, int *&); // Swap pointers
 
 int main()
 {
+    // Initialize variables
     // int x = 5, y = 10;
     int *xPtr = new int(5);
     int *yPtr = new int(10);
 
+    // Console print before swap
     // cout << "x = " << x << "  | y = " << y << endl;
-    cout << "xPtr = " << *xPtr << "  | yPtr = " << *yPtr << endl;
+    cout << "xPtr = " << *xPtr << "  | yPtr = " << *yPtr << endl; 
 
     cout << "Swapping...\n";
     // int sum = swap(x, y);
-    int sum = swap(xPtr, yPtr);
+    int sum = swap(xPtr, yPtr); // Swap pointers
+
+    // Console print after swap
     // cout << "x = " << x << " | y = " << y << endl;
     cout << "xPtr = " << *xPtr << "  | yPtr = " << *yPtr << endl;
     cout << "sum = " << sum << endl;
 
+    // Deallocate heap elements and nullify pointers
     delete xPtr, yPtr;
     xPtr = nullptr;
     yPtr = nullptr;
