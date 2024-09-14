@@ -2,23 +2,22 @@
 using namespace std;
 
 // int swap(int &, int &);
-int swap(int *, int *);
+int swap(int *&, int *&);
 
 int main()
 {
     // int x = 5, y = 10;
-    int *xPtr, *yPtr = nullptr;
-    *xPtr = 5;
-    *yPtr = 10;
+    int *xPtr = new int(5);
+    int *yPtr = new int(10);
 
     // cout << "x = " << x << "  | y = " << y << endl;
-    cout << "xPtr = " << xPtr << "  | yPtr = " << yPtr << endl;
+    cout << "xPtr = " << *xPtr << "  | yPtr = " << *yPtr << endl;
 
     cout << "Swapping...\n";
     // int sum = swap(x, y);
     int sum = swap(xPtr, yPtr);
     // cout << "x = " << x << " | y = " << y << endl;
-    cout << "xPtr = " << xPtr << "  | yPtr = " << yPtr << endl;
+    cout << "xPtr = " << *xPtr << "  | yPtr = " << *yPtr << endl;
     cout << "sum = " << sum << endl;
 
     delete xPtr, yPtr;
@@ -36,7 +35,8 @@ int main()
 //     return a + b;
 // }
 
-int swap(int *a, int *b)
+// Just swap what the pointers are pointing at instead of dereferencing
+int swap(int *&a, int *&b)
 {
     int *temp = a;
     a = b;
